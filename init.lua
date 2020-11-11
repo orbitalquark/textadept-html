@@ -311,32 +311,19 @@ textadept.editing.api_files.html = {
   _HOME .. '/modules/html/api', _USERHOME .. '/modules/html/api'
 }
 
--- Commands.
-
----
--- Container for HTML-specific key bindings.
--- @class table
--- @name _G.keys.html
-keys.html = {}
-
 -- Snippets.
 
----
--- Container for HTML-specific snippets.
--- @class table
--- @name _G.snippets.html
-snippets.html = {
-  c = '<!-- %0 -->',
-  ['<'] = '<%1(div)>\n\t%0\n</%1>',
-  divc = '<div class="%1">\n\t%0\n</div>',
-  divi = '<div id="%1">\n\t%0\n</div>',
-  br = '<br />\n%0',
-  table = '<table class="%1">\n\t<tr>\n\t\t<th>%0</th>\n\t</tr>\n</table>',
-  td = '<td>%0</td>',
-  tr = '<tr>\n\t%0\n</tr>',
-  ulc = '<ul class="%1(list)">\n\t%0\n</ul>',
-  ul = '<ul>\n\t%0\n</ul>',
-  li = '<li>%0</li>',
-}
+local snip = snippets.html
+snip.c = '<!-- %0 -->'
+snip['<'] = '<%1(div)>\n\t%0\n</%1>'
+snip.divc = '<div class="%1">\n\t%0\n</div>'
+snip.divi = '<div id="%1">\n\t%0\n</div>'
+snip.br = '<br />\n%0'
+snip.table = '<table class="%1">\n\t<tr>\n\t\t<th>%0</th>\n\t</tr>\n</table>'
+snip.td = '<td>%0</td>'
+snip.tr = '<tr>\n\t%0\n</tr>'
+snip.ulc = '<ul class="%1(list)">\n\t%0\n</ul>'
+snip.ul = '<ul>\n\t%0\n</ul>'
+snip.li = '<li>%0</li>'
 
 return M
