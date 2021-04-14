@@ -127,14 +127,13 @@ local attributes = {
     'src', attr.core
   },
   frameset = {'cols', 'rows', attr.core, attr.lang},
-  head = {'profile'},
+  head = {'profile', attr.lang},
   h1 = {'align', attr.core, attr.lang, event.key, event.mouse},
   h2 = {'align', attr.core, attr.lang, event.key, event.mouse},
   h3 = {'align', attr.core, attr.lang, event.key, event.mouse},
   h4 = {'align', attr.core, attr.lang, event.key, event.mouse},
   h5 = {'align', attr.core, attr.lang, event.key, event.mouse},
   h6 = {'align', attr.core, attr.lang, event.key, event.mouse},
-  head = {attr.lang},
   header = {attr.core, attr.lang, event.key, event.mouse},
   hgroup = {attr.core, attr.lang, event.key, event.mouse},
   hr = {'align', 'noshade', 'size', 'width', attr.core},
@@ -252,9 +251,9 @@ textadept.editing.autocompleters.html = function()
     if not symbol and not part then
       -- Look back for an open tag.
       for i = buffer:line_from_position(buffer.current_pos) - 1, 1, -1 do
-        local line = buffer:get_line(i)
-        if line:find('>[^<]*$') then break end
-        symbol = line:match('<(%w+)[^>]*$')
+        local prev_line = buffer:get_line(i)
+        if prev_line:find('>[^<]*$') then break end
+        symbol = prev_line:match('<(%w+)[^>]*$')
         if symbol then break end
       end
       if not symbol then return nil end
